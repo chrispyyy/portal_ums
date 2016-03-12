@@ -1,0 +1,136 @@
+.footer {
+  z-index: 10;
+}
+
+.pre-footer {
+  width: 100%;
+  background-color: #446B88;
+  color: $white;
+  padding: 25px;
+  display: inline-block;
+
+  h4 {
+    font-size: 1em;
+    margin: 0;
+    text-align: center;
+    margin-top: 2px;
+    line-height: 2em;
+    color: $white;
+    vertical-align: middle;
+    display: block;
+
+    @include media($screen-hlf-scrn) {
+      line-height: 22px;
+      display: inline-block;
+      text-align: right;
+      max-width: 26%;
+    }
+    @include media($screen-sm) {
+      max-width: none;
+    }
+  }
+
+  .footer-content {
+    text-align: center;
+    margin-bottom: 9px;
+
+    @include media($screen-hlf-scrn) {
+      margin-bottom: 0;
+    }
+
+    form {
+      display: inline;
+    }
+
+    input[type='email'] {
+      padding: 13px;
+      width: 205px;
+      font-size: 1em;
+      color: $header-color;
+      
+
+      @include media($screen-hlf-scrn) {
+        display: inline-block;
+        width: 30%;
+        margin-left: 16px;
+      }
+
+      @include media($screen-sm) {
+        width: 39%;
+      }
+
+      &.subscribed {
+        border: 3px solid #32CD32;//lime green
+      }
+    }
+
+    input[type='submit'] {
+      margin-top: 15px;
+
+      @include media($screen-xs) {
+        margin-left: 10px;
+        margin-top: 0px;
+      }
+    }
+  }  
+}
+
+.container {
+  $mobile: new-breakpoint(max-width 500px 4);
+  @include outer-container;
+}
+
+.bottom-footer {
+  width: 100%;
+  background-color: $dark-blue;
+  color: $white;
+  padding: 5%;
+
+  p {
+    font-size: 14px;
+    color: $white;
+    line-height: 1.5em;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h4 {
+    color: $white;
+  }
+
+  .footer-lists {
+    @include span-columns(3);
+
+    a {
+      text-decoration: underline;
+      display: inline-block;
+    }
+
+    min-width: 200px;
+
+    svg path:hover {
+      fill: $light-blue;
+    }
+
+    svg {
+      height: 30px;
+      width: 30px;
+      margin-top: 16px;
+    } 
+
+    &:last-of-type {
+      @include span-columns(3);
+      @include omega;
+      
+      padding-top: 70px;
+
+      @include media($screen-sm) {
+        margin-left: 13%;
+      }
+
+      @include media($screen-md) {
+        @include shift(3);
+      }
+    }
+  }
+
+}
