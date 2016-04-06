@@ -1,33 +1,4 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.logo-image {
-    overflow: hidden;
 
-    @include media($screen-sm) {
-      @include span-columns(6);
-      @include shift(6);
-    }
-
-    img {
-      width: 100%;
-
-      @include media($screen-sm) {
-        width: 140%;
-      }
-      @include media($screen-md) {
-        width: 100%;
-      }
-    }
-  }
-
-  //BUTTONS
-.btn {
-  display: inline-block; 
-  padding: .738em 1.875em;
-  border-radius: .14em;
-  color: $white;
-  border: 0;
-  outline:0;
-  position: relative;
-}
