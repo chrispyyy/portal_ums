@@ -1,14 +1,15 @@
 <div class="container is-fluid">
   <nav class="navbar">
     <div class="navbar-left">
-        <p class="navbar-item"><a href="/home">Home</a></p>
-        <p class="navbar-item"><a href="/maps">Maps</a></p>
+        <p class="navbar-item"><%= link_to "Home", "/home"%></p>
+        <p class="navbar-item"><%= link_to "Maps", "/maps"%></p>
+        <p class="navbar-item"><%= link_to "Directory", "/directory"%></p>
     </div>
 
     <div class="navbar-right">
-      <p class="navbar-item"><strong>Profile</strong></p>
+      <p class="navbar-item"><strong><%= link_to "Profile", "profile" %></strong></p>
       <p class="navbar-item"><a>Logout</a></p>
-      <p class="navbar-item"><a>About</a></p>
+      <p class="navbar-item"><%= link_to "About", "/about"%></p>
       <p class="navbar-item"><a class="button is-success">New</a></p>
     </div>
   </nav>

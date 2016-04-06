@@ -5,9 +5,17 @@ Rails.application.routes.draw do
 
   get 'index.html', to: redirect('/')
   get '/home', to: redirect('/')
+  get '/about' => 'pages#about'
 
   resources :maps, only: [:index]
-  
+
+  resources :fellows, only: [:index, :new, :show, :edit]
+
+  get 'profile' => 'fellows#show'
+
+  namespace :admin do
+    resources :fellows, only: [:index, :new, :show, :edit]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,35 @@
+<div class="row">
+
+  <div class="large-4 columns">
+    <%= form.input :name, collection: Program::LONG_NAME %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form.input :city, collection: CITIES %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form.input :duration, placeholder: "in weeks" %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form.input :priority, placeholder: "1" %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form.input :part_time, collection: [
+        false,
+        true
+      ] %>
+  </div>
+
+  <div class="large-4 columns">
+    <%= form.input :goals, placeholder: "11" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <%= form.submit "Submit", :class => "button" %>
+  </div>
+</div>
