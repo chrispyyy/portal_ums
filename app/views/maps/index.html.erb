@@ -5,7 +5,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        body { margin:0; padding:0; }
+       
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
@@ -23,7 +23,11 @@
   </div>
 </section>
 
-<div clas="container">
+<div class='sidebar pad2'>Listing</div>
+<div id='map' class='map pad2'>Map</div>
+
+<div class="column is-11 is-offset-1">
+<div class="container">
 <body>
   <div id='map'></div>
   <script type='text/javascript'>
@@ -31,8 +35,8 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v8', //stylesheet location
-      center: [-74.50, 40], // starting position
-      zoom: 9 // starting zoom
+      center: [160.351826, 46.423729], // starting position
+      zoom: 1.61 // starting zoom
     });
 
     map.on('style.load', function () {
@@ -44,11 +48,11 @@
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [-77.03238901390978, 38.913188059745586]
+                        "coordinates": [-79.38, 43.71]
                     },
                     "properties": {
-                        "title": "Mapbox DC",
-                        "marker-symbol": "monument"
+                        "title": "Toronto",
+                        "marker-symbol": "town-hall"
                     }
                 }, {
                     "type": "Feature",
@@ -57,7 +61,7 @@
                         "coordinates": [-122.414, 37.776]
                     },
                     "properties": {
-                        "title": "Mapbox SF",
+                        "title": "San Francisco",
                         "marker-symbol": "harbor"
                     }
                 }]
@@ -80,5 +84,6 @@
 
   </script>
 </body>
+</div>
 </div>
 

@@ -9,17 +9,12 @@
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
-
+  
   <body>
     <%= render 'shared/navbar' %>
-    
     <%= yield %>
-
     <%= render 'shared/footer' %>
-
-    <%#= yield :end_of_body %>
-    <%#= yield :page_bottom %>
-
   </body>
+  
 </html>
 
