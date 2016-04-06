@@ -3,22 +3,18 @@
   <head>
     <title>Cansbridge Portal</title>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.16/css/bulma.min.css' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
-
+  
   <body>
-    <%#= render 'shared/navigation' %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
-
     <%= render 'shared/footer' %>
-
-    <%#= yield :end_of_body %>
-    <%#= yield :page_bottom %>
-
   </body>
+  
 </html>
 
