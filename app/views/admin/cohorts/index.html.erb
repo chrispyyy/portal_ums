@@ -1,0 +1,32 @@
+<% title "Classes" %>
+
+<h3>Classes</h3>
+
+<div class="panel radius action-bar">
+  <%= link_to "Add A New Class", new_admin_cohort_path, :class => 'button tiny', :id => 'cohort-create-button' %>
+  <div id="cohort-pagination" class="right">
+    <%= paginate @cohorts %>
+  </div>
+</div>
+
+<section>
+
+  <table style="width:100%">
+    <tr>
+      <th><%= sortable "name", "Program Name" %></th>
+      <th><%= sortable "year", "Year" %></th>
+      <th style="width:120px">Fellows</th>
+    </tr>
+    <% @cohorts.each do |cohort| %>
+      <tr>
+        <td><%= link_to cohort.name, admin_cohort_path(cohort.id)%></td>
+        <td><%= cohort.year %></td>
+        <td>
+          <%= link_to "#{cohort.fellows.count} Fellows", admin_student_applications_path(cohort_id: cohort.id) %>
+          <br>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</section>

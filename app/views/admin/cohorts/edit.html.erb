@@ -1,0 +1,9 @@
+<% title "Admin - Edit A Class" %>
+
+<h3>Edit: <%= @cohort.name %> Program #<%= @cohort.id %></h3>
+
+<section>
+  <%= simple_form_for [:admin, @cohort] do |f| %>
+    <%= render f %>
+  <% end %>
+</section>
