@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405012643) do
+ActiveRecord::Schema.define(version: 20160407174659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "administrators", force: :cascade do |t|
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
-    t.string   "email",           limit: 255
-    t.string   "email2",          limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "email2"
     t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fellows", force: :cascade do |t|
@@ -40,11 +47,7 @@ ActiveRecord::Schema.define(version: 20160405012643) do
     t.string   "age"
     t.string   "phone_number"
     t.string   "personal_summary", limit: 1000
-  end
-
-  create_table "geojson_builders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cohort_id"
   end
 
 end

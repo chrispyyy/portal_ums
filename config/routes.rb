@@ -9,12 +9,14 @@ Rails.application.routes.draw do
 
   resources :maps, only: [:index]
 
-  resources :fellows, only: [:index, :new, :show, :edit]
+  resources :fellows, only: [:index, :new, :edit, :show]
 
   get 'profile' => 'fellows#show'
 
   namespace :admin do
+    root to: 'cohorts#index'
     resources :fellows, only: [:new, :edit]
+    resources :cohorts
   end
 
 

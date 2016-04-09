@@ -5,12 +5,12 @@
 
   <label class="label">Name</label>
   <p class="control">
-    <%= form.input :name, placeholder: "Class of 2016" %>
+    <%= form.text_field :name, placeholder: "Class of 2016" %>
   </p>
 
   <label class="label">Year</label>
   <p class="control">
-    <%= form.input :year, collection: Cohort::CLASS_YEARS, :class => "select" %>
+    <%= form.text_field :year, collection: Cohort::CLASS_YEARS, :class => "select" %>
   </p>
 
 </div>

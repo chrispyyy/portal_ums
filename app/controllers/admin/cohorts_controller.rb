@@ -36,7 +36,6 @@ class Admin::CohortsController < ApplicationController
 
   def index
     @cohorts = Cohort.order(sort_column + " " + sort_direction)
-    @cohorts = @cohorts.page(params[:page]).per(20)
   end
 
   def destroy
@@ -52,8 +51,7 @@ class Admin::CohortsController < ApplicationController
   def cohort_params
     params.require(:cohort).permit(
       :name,
-      :year,
-      :short_name
+      :year
     )
   end
 

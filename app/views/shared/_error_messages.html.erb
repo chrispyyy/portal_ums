@@ -1,0 +1,15 @@
+<% if object.errors.any? %>
+  <div class="container">
+    <blockquote>
+      <p>
+        Please correct the following things in order to proceed:
+      </p>
+
+      <ul>
+        <% object.errors.full_messages.each do |message| %>
+          <li> <%= message %></li>
+        <% end -%>
+      </ul>
+    </blockquote>
+  </div>
+<% end %>

@@ -19,12 +19,11 @@
       <tr>
         <td>Updated at</td><td><%= @cohort.updated_at.strftime("%B %e, %Y") %></td>
       </tr>
+      <% if false %>
       <tr>
         <td>Fellows</td><td><%= @cohort.fellows.count %></td>
       </tr>
-      <tr>
-        <td>Number of Classes</td><td><%= @cohort.cohorts.length %></td>
-      </tr>
+        <% end %>
     </table>
   </div>
 </div>

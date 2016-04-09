@@ -2,8 +2,32 @@
 
 <%= render 'shared/error_messages', object: f.object %>
 
-<fieldset>
-  <legend>Project Member Info</legend>
+<div class="container">
+
+  <label class="label">First Name</label>
+  <p class="control">
+    <%= form.text_field :first_name, placeholder: "Ross" %>
+  </p>
+  <label class="label">Last Name</label>
+  <p class="control">
+    <%= form.text_field :last_name, placeholder: "Kelly" %>
+  </p>
+  <label class="label">Email</label>
+  <p>To recieve Cansbridge updates, newsletters, and events</p>
+  <p class="control">
+    <%= form.text_field :email, placeholder: "ross@boss.ca" %>
+  </p>
+  <label class="label">Email</label>
+  <p>Other email (secondary, company email)</p>
+  <p class="control">
+    <%= form.text_field :email, placeholder: "ross@company.ca" %>
+  </p>
+
+</div>
+
+  <p class="control">
+    <%= form.submit "Submit", :class => "button is-info" %>
+  </p>
 
   <div class="row">
     <div class="large-12 columns">
@@ -43,5 +67,3 @@
       <% end %>
     </div>
   <% end %>
-
-</fieldset>
