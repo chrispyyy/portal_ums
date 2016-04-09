@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'cohorts#index'
-    resources :fellows, only: [:new, :edit]
+    resources :fellows
     resources :cohorts
   end
 
