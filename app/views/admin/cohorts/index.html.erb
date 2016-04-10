@@ -1,0 +1,28 @@
+<% title "Classes" %>
+
+<div class="section">
+  <div class="container">
+    <div class="title">Classes</div>
+    <%= link_to "Add A New Class", new_admin_cohort_path, :class => 'button is-success' %>
+    <table>
+    <div class="table is-striped">
+      <tr>
+        <th><%= sortable "name", "Program Name" %></th>
+        <th><%= sortable "year", "Year" %></th>
+        <th>Fellows</th>
+      </tr>
+      <% @cohorts.each do |cohort| %>
+        <tr>
+          <td><%= link_to cohort.name, admin_cohort_path(cohort.id)%></td>
+          <td><%= cohort.year %></td>
+
+          <td>
+            <%= link_to "#{cohort.fellows.count} Fellows", admin_cohorts_path(cohort_id: cohort.id) %>
+            <br>
+          </td>
+
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

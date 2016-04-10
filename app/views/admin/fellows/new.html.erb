@@ -1,0 +1,12 @@
+<% title "Admin - New Fellow" %>
+
+<h3><%= @cohort.name %>: New Member</h3>
+
+<%= form_for [:admin,@cohort, @fellow],:url => admin_fellows_path(@cohort), :html => { :multipart => true } do |f| -%>
+
+  <%= render f , readonly: false %>
+
+  <%= f.submit "Create Class", :class => "button is-success" %>
+  or
+  <%= link_to 'Done Creating', [:admin, @cohort] %>
+<% end -%>

@@ -13,6 +13,8 @@ class CreateFellows < ActiveRecord::Migration
       t.string :age
       t.string :phone_number
       t.string :personal_summary, limit: 1000
+      t.references :cohort
     end
+
   end
 end

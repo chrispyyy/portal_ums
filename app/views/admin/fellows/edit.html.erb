@@ -1,0 +1,9 @@
+<% title "Edit: #{@fellow.name}" %>
+<h3>Edit: <%= @fellow.name %> </h3>
+
+<%= form_for [:admin,@cohort, @fellow],:url => admin_fellow_path(@cohort, @fellow), :html => { :multipart => true } do |f| -%>
+
+  <%= render f , readonly: false %>
+
+  <%= f.submit "Submit", :class => "button" %>
+<% end -%>
