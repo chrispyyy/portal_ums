@@ -2,7 +2,7 @@ class Admin::FellowsController < ApplicationController
 
   include SortedColumns
 
-  before_action :require_cohort
+  # before_action :require_cohort
   before_action :require_fellow, only: [:edit, :update, :show, :destroy]
 
   # scope :for_cohort,  -> (cohort) { where(cohort_id: cohort) }
@@ -21,7 +21,7 @@ class Admin::FellowsController < ApplicationController
   end
 
   def index
-    @fellow = Fellow.order(sort_column + " " + sort_direction)
+    # @fellow = Fellow.order(sort_column + " " + sort_direction)
 
     if params[:cohort_id].present?
       if params[:cohort_id] == '0'
@@ -61,7 +61,8 @@ class Admin::FellowsController < ApplicationController
     params.require(:fellow).permit(
       :first_name,
       :last_name,
-      :email
+      :email,
+      :cohort_id
     )
   end
 
@@ -70,7 +71,7 @@ class Admin::FellowsController < ApplicationController
   end
 
   def require_fellow
-    @fellow = @cohort.fellows.find(params[:id])
+    @fellow = Fellow.find(params[:id])
   end
 
   # def sort_column

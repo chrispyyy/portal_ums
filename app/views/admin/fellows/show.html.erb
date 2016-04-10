@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <h3><%= @fellow.name %></h3>
+    <h3><%= @fellow.full_name %></h3>
 
     <div class="container">
       <%= link_to "Edit", edit_admin_fellow_path(@fellow.id), :class => "button is-warning", :id => "fellow-edit-button" %>
@@ -11,17 +11,20 @@
 
     <table style="width:100%">
       <tr>
-        <td>Name</td><td><%= @fellow.try :name %></td>
+        <td>First Name</td><td><%= @fellow.first_name %></td>
       </tr>
       <tr>
-        <td>Year</td><td><%= @fellow.try :year %></td>
+        <td>Last Name</td><td><%= @fellow.last_name %></td>
+      </tr>
+      <tr>
+        <td>Class</td><td><%= @cohort.year %></td>
       </tr>
       <tr>
         <td>Updated at</td><td><%= @fellow.updated_at.strftime("%B %e, %Y") %></td>
       </tr>
       <% if false %>
       <tr>
-        <td>Fellows</td><td><%= @fellow.fellows.count %></td>
+        <td>Fellows</td><td><%= @cohort.fellows.count %></td>
       </tr>
         <% end %>
     </table>

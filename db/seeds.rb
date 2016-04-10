@@ -55,9 +55,9 @@ if Rails.env.development?
   ###############
   Fellow.delete_all
 
-  @cohort_2011.Fellow.create!(first_name: 'Chrispy', last_name: 'Brks', email: 'chrispy@brks.ca')
-  @cohort_2012.Fellow.create!(first_name: 'Ross', last_name: 'Boss', email: 'ross@boss.com')
-  @cohort_2013.Fellow.create!(first_name: 'Chris', last_name: 'Lab', email: 'chrislab@mosaic.ca')
+  @cohort_2011.fellows.create!(first_name: 'Chrispy', last_name: 'Brks', email: 'chrispy@brks.ca')
+  @cohort_2012.fellows.create!(first_name: 'Ross', last_name: 'Boss', email: 'ross@boss.com')
+  @cohort_2013.fellows.create!(first_name: 'Chris', last_name: 'Lab', email: 'chrislab@mosaic.ca')
 
   # fellows_array = [
   #   {
