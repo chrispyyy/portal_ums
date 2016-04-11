@@ -2,8 +2,10 @@
 
 <h3>Fellows</h3>
 
-<div class="panel radius action-bar">
-  <%= link_to "Add A New Class", new_admin_cohort_path, :class => 'button tiny', :id => 'cohort-create-button' %>
+<div class="section">
+  <div class="container">
+    <%= link_to "Add Fellow to Class", new_admin_cohort_fellow_path(@cohort), :class => "button is-success" %>
+  </div>
 </div>
 
 <section>

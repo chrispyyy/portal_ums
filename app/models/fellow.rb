@@ -6,6 +6,10 @@ class Fellow < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 20 }
   # validates :year, presence: true, length: { maximum: 4 }
 
+  def initialize(fellow)
+      @fellow = fellow
+  end
+
 private
 
   def self.full_name
