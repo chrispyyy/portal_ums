@@ -12,10 +12,10 @@
         <td>Year</td><td><%= @cohort.try :year %></td>
       </tr>
       <tr>
-        <td>Updated on</td><td><%= @cohort.updated_at.strftime("%B %e, %Y") %></td>
+        <td>Fellows</td><td><%= @cohort.fellows.count %></td>
       </tr>
       <tr>
-        <td>Fellows</td><td><%= @cohort.fellows.count %></td>
+        <td>Updated on</td><td><%= @cohort.updated_at.strftime("%B %e, %Y") %></td>
       </tr>
     </table>
   </div>
@@ -23,7 +23,14 @@
 
 <div class="section">
   <div class="container">
-    <%= link_to "Edit", edit_admin_cohort_path(@cohort.id), :class => "button is-warning", :id => "cohort-edit-button" %>
-    <%= link_to "Delete", admin_cohort_path(@cohort.id), method: :delete, confirm: "Are you sure you want to delete this Class?", :class => "button is-danger" %>
+    <%= link_to "Back To Classes", admin_cohorts_path, :class => "button" %>
+    <%= link_to "Edit", edit_admin_cohort_path(@cohort.id), :class => "button is-warning" %>
+    <%= link_to "Delete", admin_cohort_path(@cohort.id), method: :delete, data: {confirm: "Are you sure you want to delete this Class?"}, :class => "button is-danger" %>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <%= render 'fellow_list' %>
   </div>
 </div>

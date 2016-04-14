@@ -1,9 +1,24 @@
-<% title "Edit: #{@fellow.name}" %>
-<h3>Edit: <%= @fellow.name %> </h3>
+<% title "Edit: #{@fellow.full_name}" %>
+<h3>Edit: <%= @fellow.full_name %> </h3>
 
-<%= form_for [:admin,@cohort, @fellow],:url => admin_fellow_path(@cohort, @fellow), :html => { :multipart => true } do |f| -%>
+<%= form_for @fellow,:url => admin_cohort_fellow_path(@cohort, @fellow), :html => { :multipart => true } do |f| -%>
 
-  <%= render f , readonly: false %>
+  <%= render f %>
 
   <%= f.submit "Submit", :class => "button" %>
 <% end -%>
+
+<% if false %>
+<% title "Admin - #{@fellow.first_name}" %>
+
+<div class="section">
+  <div class="container">
+    <div class="title">Edit: <%= @cohort.name %> Program #<%= @cohort.id %></div>
+    <div class="container">
+      <%= form_for [:admin, @cohort] do |f| %>
+        <%= render f %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

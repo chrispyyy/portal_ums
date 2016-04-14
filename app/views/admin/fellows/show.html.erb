@@ -6,7 +6,7 @@
 
     <div class="container">
       <%= link_to "Edit", edit_admin_fellow_path(@fellow.id), :class => "button is-warning", :id => "fellow-edit-button" %>
-      <%= link_to "Delete", admin_fellow_path(@fellow.id), method: :delete, confirm: "Are you sure you want to delete this Class?", :class => "button is-danger is-outlined" %>
+      <%= link_to "Delete", admin_fellow_path(@fellow.id), method: :delete, data: {confirm: "Are you sure you want to delete this Class?"}, :class => "button is-danger is-outlined" %>
     </div>
 
     <table style="width:100%">

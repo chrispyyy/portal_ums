@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="title">Fellows</div>
+  <div class="table is-striped">
+    <table>
+      <tr>
+        <th><%= sortable "first_name", "First Name" %>
+        </th>
+        <th><%= sortable "last_name", "Last Name" %>
+        </th>
+      </tr>
+      <% @cohort.fellows.each do | fellow | %>
+        <tr>
+          <td><%= fellow.first_name %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_cohort_fellow_path(fellow.cohort, fellow), :class => "button" %>
+            <%#= link_to "Edit", [:admin, :edit, @cohort, fellow], :class => "button" %>
+          </td>
+          <td>
+            <%#= link_to "Delete", admin_cohort_fellow_path(fellow.cohort, fellow), method: :delete, data: { confirm: "Are you sure you want to delete this Fellow?" }, :class => "button" %>
+            <%= link_to "Delete", [:admin, @cohort, fellow], method: :delete, data: { confirm: "Are you sure you want to delete this Fellow?" }, :class => "button" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  <div class="section">
+    <div class="container">
+      <%= link_to "Add Fellow to this Class", new_admin_cohort_fellow_path(@cohort), :class => "button is-success" %>
+    </div>
+  </div>
+
+  </div>
+</div>

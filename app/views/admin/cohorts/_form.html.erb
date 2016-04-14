@@ -1,13 +1,13 @@
 <%= render 'shared/error_messages', object: @cohort if @cohort.errors.any? %>
 <div class="section">
   <div class="container">
-    <label class="label">Name</label>
+    <label class="label"><strong>Name</strong></label>
     <p class="control">
       <%= form.text_field :name, placeholder: "Class of 2016" %>
     </p>
-    <label class="label">Year</label>
+    <label class="label"><strong>Year</strong></label>
     <p class="control">
-      <%= form.text_field :year, collection: Cohort::CLASS_YEARS, :class => "select" %>
+      <%= form.text_field :year, placeholder: "2016" %>
     </p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class Cohort < ActiveRecord::Base
 
   validates :name, presence: true
-  validates :year, presence: true, length: { maximum: 4 }
+  validates :year, uniqueness: true, presence: true, length: { maximum: 4 }, numericality: { only_integer: true }
 
   has_many :fellows
 
