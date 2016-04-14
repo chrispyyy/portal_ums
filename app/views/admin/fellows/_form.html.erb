@@ -28,14 +28,8 @@
     <%= form.submit "Submit", :class => "button is-info" %>
   </p>
 
-  <div class="row">
-    <div class="large-12 columns">
-      <%= f.label "Name - First Name Only" %>
-      <%= f.text_field "first_name", readonly: readonly %>
-    </div>
-  </div>
 
-  <% if readonly %>
+  <% if false %>
     <div class="row">
       <% if @project_member.image? %>
         <div class="large-12 columns">

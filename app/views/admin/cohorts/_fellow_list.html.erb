@@ -9,17 +9,19 @@
         </th>
       </tr>
       <% @cohort.fellows.each do | fellow | %>
-      <tr>
-        <td><%= fellow.first_name %></td>
-        <td>
-          <%= link_to "Edit", edit_admin_fellow_path(fellow.cohort, fellow), :class => "button" %>
-        </td>
-        <td>
-          <%= link_to "Delete", admin_fellow_path(fellow.cohort, fellow), method: :delete, data: { confirm: "Are you sure you want to delete this Fellow?" }, :class => "button" %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+        <tr>
+          <td><%= fellow.first_name %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_cohort_fellow_path(fellow.cohort, fellow), :class => "button" %>
+            <%#= link_to "Edit", [:admin, :edit, @cohort, fellow], :class => "button" %>
+          </td>
+          <td>
+            <%#= link_to "Delete", admin_cohort_fellow_path(fellow.cohort, fellow), method: :delete, data: { confirm: "Are you sure you want to delete this Fellow?" }, :class => "button" %>
+            <%= link_to "Delete", [:admin, @cohort, fellow], method: :delete, data: { confirm: "Are you sure you want to delete this Fellow?" }, :class => "button" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
 
   <div class="section">
     <div class="container">
@@ -27,5 +29,5 @@
     </div>
   </div>
 
-</div>
+  </div>
 </div>
