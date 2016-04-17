@@ -1,0 +1,141 @@
+
+<head>
+  <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+  <div class="columns is-gapless">
+    <div class="column is-one-quarter">
+      <div class="container">
+        <aside class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Customers</a></li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <div class="column">
+      <nav id="menu"></nav>
+      <div class="mapboxgl-map" id="map"></div>
+    </div>
+  </div>
+
+  <script type='text/javascript'>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXNweXl5IiwiYSI6ImNpbW1kZXl2MDAzM3h1Mmx1NzZvZW9haXEifQ.IRO_s_tGZNlP1JmGm03ISQ';
+
+    var markers = {
+      "type": "FeatureCollection",
+      "features": [{
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [-79.38, 43.71]
+          },
+          "properties": {
+              "title": "Toronto",
+              "marker-symbol": "town-hall"
+          }
+        }, {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [-122.414, 37.776]
+          },
+          "properties": {
+              "title": "San Francisco",
+              "marker-symbol": "harbor"
+          }
+        }]
+      };
+
+    var filterGroup = document.getElementById('filter-group');
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/streets-v8', //stylesheet location
+      center: [160.351826, 46.423729], // starting position
+      zoom: 1.61 // starting zoom
+    });
+
+    map.on('load', function () {
+      // Add marker data as a new GeoJSON source.
+        map.addSource("markers", {
+            "type": "geojson",
+            "data": markers
+          });
+
+        markers.features.forEach(function(feature) {
+        var symbol = feature.properties['marker-symbol'];
+        var layerID = 'poi-' + 'marker-11';
+
+         // Add a layer for this symbol type
+         if (!map.getLayer(layerID)) {
+            map.addLayer({
+                "id": layerID,
+                "type": "symbol",
+                "source": "markers",
+                "layout": {
+                    "icon-image": 'marker-11' + "-15",
+                    "icon-allow-overlap": true
+                },
+                "filter": ["==", "marker-symbol", symbol]
+            });
+
+            // Add checkbox and label elements for the layer.
+            var input = document.createElement('input');
+            input.type = 'checkbox';
+            input.id = layerID;
+            input.checked = true;
+            filterGroup.appendChild(input);
+
+            var label = document.createElement('label');
+            label.setAttribute('for', layerID);
+            label.textContent = symbol;
+            filterGroup.appendChild(label);
+
+            // When the checkbox changes, update the visibility of the layer.
+            input.addEventListener('change', function(e) {
+                map.setLayoutProperty(layerID, 'visibility',
+                    e.target.checked ? 'visible' : 'none');
+            });
+
+
+            // When the checkbox changes, update the visibility of the layer.
+            input.addEventListener('change', function(e) {
+                map.setLayoutProperty(layerID, 'visibility',
+                    e.target.checked ? 'visible' : 'none');
+            });
+
+
+
+        });
+
+        // map.addLayer({
+        //     "id": "markers",
+        //     "type": "symbol",
+        //     "source": "markers",
+        //     "layout": {
+        //         "icon-image": "{marker-symbol}-15",
+        //         "text-field": "{title}",
+        //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+        //         "text-offset": [0, 0.6],
+        //         "text-anchor": "top"
+        //     }
+        // });
+    });
+
+  </script>
+</body>
+</div>
+</div>
