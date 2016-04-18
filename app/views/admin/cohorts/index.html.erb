@@ -19,7 +19,7 @@
             <td><%= link_to cohort.name, admin_cohort_path(cohort.id)%></td>
             <td><%= cohort.year %></td>
             <td>
-              <%= link_to "#{cohort.fellows.count} Fellows", admin_cohorts_path(cohort_id: cohort.id) %>
+              <%= "#{cohort.fellows.count} Fellows" %>
             </td>
           </tr>
       <% end %>

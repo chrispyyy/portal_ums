@@ -1,6 +1,7 @@
 class Fellow < ActiveRecord::Base
 
   belongs_to :cohort
+  has_many :locales
 
   validates :first_name, presence: true, length: { maximum: 20 }
   validates :last_name, presence: true, length: { maximum: 20 }

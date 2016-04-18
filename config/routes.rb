@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'index.html', to: redirect('/')
   get '/home', to: redirect('/')
   get '/about' => 'pages#about'
+  
+  #will change when adding admin/public authentication
+  get '/directory' => 'admin/cohorts#index'
 
   resources :maps, only: [:index]
 
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
     root to: 'cohorts#index'
     resources :cohorts do
       resources :fellows
+      resources :locales
     end
   end
 

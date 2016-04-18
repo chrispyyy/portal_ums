@@ -59,6 +59,21 @@ if Rails.env.development?
   @cohort_2012.fellows.create!(first_name: 'Ross', last_name: 'Boss', email: 'ross@boss.com')
   @cohort_2013.fellows.create!(first_name: 'Chris', last_name: 'Lab', email: 'chrislab@mosaic.ca')
 
+
+  ###############
+  ## Locales
+  ###############
+  Locale.delete_all
+
+  Locale.create!(city: 'Shanghai', country: 'China', year: '2011')
+
+  # @cohort_2011.fellows.locales.create!(city: 'Shanghai', country: 'China', year: cohort.year)
+  # @cohort_2011.fellows.locales.create!(city: 'Shanghai', country: 'China', year: cohort.year)
+  # @cohort_2011.fellows.locales.create!(city: 'Hong Kong', country: 'China', year: cohort.year)
+  # @cohort_2011.fellows.locales.create!(city: 'Beijing', country: 'China', year: cohort.year)
+
+
+
   # fellows_array = [
   #   {
   #     first_name: 'Chrispy',

@@ -11,6 +11,10 @@
       <% @cohort.fellows.each do | fellow | %>
         <tr>
           <td><%= fellow.first_name %></td>
+          <td><%= fellow.last_name %></td>
+          <td>
+            <%= link_to "Details", admin_cohort_fellow_path(fellow.cohort, fellow), :class => "button" %>
+          </td>
           <td>
             <%= link_to "Edit", edit_admin_cohort_fellow_path(fellow.cohort, fellow), :class => "button" %>
             <%#= link_to "Edit", [:admin, :edit, @cohort, fellow], :class => "button" %>
