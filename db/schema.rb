@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160417195816) do
   create_table "locales", force: :cascade do |t|
     t.string   "city"
     t.string   "country"
-    t.string   "year"
+    t.date     "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "fellow_id"

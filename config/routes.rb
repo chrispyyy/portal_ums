@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'index.html', to: redirect('/')
   get '/home', to: redirect('/')
   get '/about' => 'pages#about'
-  
+
   #will change when adding admin/public authentication
   get '/directory' => 'admin/cohorts#index'
 
@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'cohorts#index'
     resources :cohorts do
-      resources :fellows
-      resources :locales
+      resources :fellows do
+        resources :locales
+      end
     end
   end
 

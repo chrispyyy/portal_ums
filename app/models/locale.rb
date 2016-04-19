@@ -4,7 +4,7 @@ class Locale < ActiveRecord::Base
 
   validates :city, presence: true, length: { maximum: 20 }
   validates :country, presence: true, length: { maximum: 20 }
-  validates :year, presence: true, length: { maximum: 4 }
+  validates :period, presence: true
 
   # add dates later
 

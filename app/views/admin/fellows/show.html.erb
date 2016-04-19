@@ -16,11 +16,30 @@
       <tr>
         <td>Updated at</td><td><%= @fellow.updated_at.strftime("%B %e, %Y") %></td>
       </tr>
-      <tr>
-          <td>
-            <%= link_to "Edit", edit_admin_cohort_fellow_path(@fellow.cohort, @fellow.id), :class => "button" %>
-          </td>
-      </tr>
     </table>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="subtitle">Locations</div>
+    <table class="table">
+      <% @fellow.locales.each do | locale | %>
+        <tr>
+          <td>City</td><td><%= locale.city %></td>
+        </tr>
+        <tr>
+          <td>Country</td><td><%= locale.country %></td>
+        </tr>
+        <tr>
+          <td>Date</td><td><%= locale.period %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <%= link_to "Edit", edit_admin_cohort_fellow_path(@fellow.cohort, @fellow.id), :class => "button" %>
   </div>
 </div>

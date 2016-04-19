@@ -3,6 +3,7 @@
 <%= render 'shared/error_messages', object: f.object %>
 <div class="section">
   <div class="container">
+    <h4 class="subtitle is-4" id="general-info">General Info</h4>
     <label class="label">First Name</label>
     <p class="control">
       <%= form.text_field :first_name, placeholder: "Ross" %>
@@ -21,6 +22,41 @@
     <p class="control">
       <%= form.text_field :email, placeholder: "ross@company.ca" %>
     </p>
+  </div>
+
+<div class="section">
+  <div class="container">
+    <%= form_for @fellow do |f| %>
+      <h4 class="subtitle is-4" id="general-info">Locations</h4>
+
+
+
+      <ul>
+        <%= f.fields_for :locales do |locales_form| %>
+          <li>
+            <label class="label">Delete Location <%= locales_form.check_box :_destroy%></label>
+            <label class="label">Date</label>
+            <p>Month of Arrival</p>
+            <p class="control">
+               <%= locales_form.date_select :period %>
+            </p>
+            <label class="label">City</label>
+            <p class="control">
+              <%= locales_form.text_field :city, placeholder: "Shanghai" %>
+            </p>
+           <label class="label">Country</label>
+           <p class="control">
+             <%= locales_form.text_field :country, placeholder: "China" %>
+           </p>
+          </li>
+
+        <% end %>
+        <p>
+          <%= f.submit 'Add Locationsssss', controller: :fellows, action: :add_locale, id: @fellow, :class => "button" %>
+          <%= f.submit 'Delete checked Locations', :first_name => "remove_locale" %>
+        </p>
+      </ul>
+    <% end %>
   </div>
 </div>
 
