@@ -2,19 +2,19 @@ class Admin::LocalesController < ApplicationController
 
   include SortedColumns
 
-  before_action :require_cohort
-  before_action :require_fellow, only: [:edit, :update, :show, :destroy]
-  before_filter :require_locale, only: [:show, :edit, :update, :destroy]
+  before_action :require_locale, only: [:show, :edit, :update, :destroy]
+  before_action :prep_form
 
   def new
-    @locale = @fellow.locales.new
+    @locale = Locale.new
   end
 
   def create
-    @locale = @fellow.locales.new(locale_params)
+    @locale = Locale.new(locale_params)
     if @locale.save
-      redirect_to edit_admin_cohort_fellow_path(@fellow.cohort, @fellow.id), notice: "You can add a new Location"
+      redirect_to admin_locales_path, notice: "#{@locale.full_name} was successfully created"
     else
+      prep_form
       render :new
     end
   end
@@ -30,16 +30,12 @@ class Admin::LocalesController < ApplicationController
     )
   end
 
-  def require_cohort
-    @cohort = Cohort.find params[:cohort_id]
-  end
-
-  def require_fellow
-    @fellow = @cohort.fellows.find(params[:id])
-  end
-
   def require_locale
     @locale = Locale.find(params[:id])
+  end
+
+  def prep_form
+    @fellow = Fellow.all
   end
   #
   # def require_locale
