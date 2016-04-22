@@ -1,0 +1,20 @@
+<% f = form %>
+
+<%= render 'shared/error_messages', object: f.object %>
+<div class="section">
+  <div class="container">
+    <label class="label">City</label>
+    <p class="control">
+      <%= form.text_field :city, placeholder: "Shanghai" %>
+    </p>
+    <label class="label">Country</label>
+    <p class="control">
+      <%= form.text_field :country, placeholder: "China" %>
+    </p>
+    <label class="label">Period</label>
+    <p>The month you moved to the location</p>
+    <p class="control">
+      <%= form.date %>
+    </p>
+  </div>
+</div>

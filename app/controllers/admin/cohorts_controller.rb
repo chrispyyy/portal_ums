@@ -2,8 +2,8 @@ class Admin::CohortsController < ApplicationController
 
   include SortedColumns
 
-  before_filter :load_cohort, only: [:show, :edit, :update, :destroy]
-  before_filter :prep_form, only: [:new, :edit]
+  before_action :load_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :prep_form, only: [:new, :edit]
 
   def new
     @cohort = Cohort.new

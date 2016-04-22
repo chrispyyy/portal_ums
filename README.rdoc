@@ -1,5 +1,5 @@
 == Portal
 
-This is a project to build a portal for manageming members of the Cansbridge Fellowship.
+This is a project is a user management system for the managers of the Cansbridge Fellowship.
 
-* Feb 29, 2016
+Using ruby on rails, javascript, bulma css, and mapbox gl js
