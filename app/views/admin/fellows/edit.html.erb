@@ -3,11 +3,11 @@
 <div class="section">
   <div class="container">
     <div class="title">Edit: <%= @fellow.full_name %> </div>
-      <h2 class="subtitle"><%= @cohort.name %></h2>
+      <h2 class="subtitle"><%= @fellow.cohort.name %></h2>
   </div>
 
   <div class="container">
-  <%= form_for @fellow,:url => admin_cohort_fellow_path(@cohort, @fellow), :html => { :multipart => true } do |f| -%>
+  <%= form_for @fellow,:url => admin_fellow_path(@fellow), :html => { :multipart => true } do |f| -%>
     <%= render f %>
   <% end %>
   </div>

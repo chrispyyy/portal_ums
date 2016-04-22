@@ -56,9 +56,34 @@ if Rails.env.development?
   Fellow.delete_all
 
   @cohort_2011.fellows.create!(first_name: 'Chrispy', last_name: 'Brks', email: 'chrispy@brks.ca')
+  @cohort_2011.fellows.create!(first_name: 'Bob', last_name: 'Bobbington', email: 'bob@bob.ca')
+  @cohort_2011.fellows.create!(first_name: 'Winston', last_name: 'Churchill', email: 'winston@bro.ca')
   @cohort_2012.fellows.create!(first_name: 'Ross', last_name: 'Boss', email: 'ross@boss.com')
+  @cohort_2012.fellows.create!(first_name: 'Michael', last_name: 'Jackson', email: 'mj@boss.com')
   @cohort_2013.fellows.create!(first_name: 'Chris', last_name: 'Lab', email: 'chrislab@mosaic.ca')
 
+
+
+
+  ###############
+  ## Locales
+  ###############
+
+  Locale.delete_all
+
+  # @cohort_2011.fellows.locales.create!(fellow_id: 1, city: 'Shanghai', country: 'China', date: DateTime.new(2015, 6, 22))
+
+  @cohort_2011.fellows.each do |fellow|
+    fellow.locales.create!(city: 'Shanghai', country: 'China', period: DateTime.new(2011, 6, 01))
+  end
+
+  @cohort_2012.fellows.each do |fellow|
+    fellow.locales.create!(city: 'Beijing', country: 'China', period: DateTime.new(2012, 5, 02))
+  end
+
+  @cohort_2013.fellows.each do |fellow|
+    fellow.locales.create!(city: 'Bangkok', country: 'Thailand', period: DateTime.new(2013, 5, 15))
+  end
 
   # fellows_array = [
   #   {

@@ -1,0 +1,9 @@
+<% title "Edit Location" %>
+
+<div class="section">
+  <div class="container">
+    <%= form_for [:admin, @locale],:url => admin_locales_path(@locale), :html => { :multipart => true } do |f| -%>
+      <%= render f %>
+    <% end %>
+  </div>
+</div>

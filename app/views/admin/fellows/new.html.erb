@@ -6,7 +6,7 @@
   </div>
 
   <div class="container">
-    <%= form_for [:admin, @cohort, @fellow],:url => admin_cohort_fellows_path(@cohort), :html => { :multipart => true } do |f| -%>
+    <%= form_for [:admin, @fellow],:url => admin_fellows_path(@fellow), :html => { :multipart => true } do |f| -%>
       <%= render f %>
 
     <% end %>

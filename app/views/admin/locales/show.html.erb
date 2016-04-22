@@ -1,0 +1,23 @@
+
+<div class="section">
+  <div class="container">
+    <table class="table">
+      <% @fellow.locales.each do | locale | %>
+        <tr>
+          <td>City</td><td><%= locale.city %></td>
+        </tr>
+        <tr>
+          <td>Country</td><td><%= locale.country %></td>
+        </tr>
+        <tr>
+          <td>Date</td><td><%= locale.period %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="container">
+    <div class="button">
+      <%= link_to "Edit", [ :edit, :admin, @locale] %>
+    </div>
+  </div>
+</div>

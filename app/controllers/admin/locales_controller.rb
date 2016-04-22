@@ -19,6 +19,21 @@ class Admin::LocalesController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @locale.update_attributes(locale_params)
+      redirect_to [:edit, :admin, @locale], notice: 'Location updated!'
+    else
+      render :edit
+    end
+  end
+
+
   protected
 
   def locale_params
@@ -35,7 +50,7 @@ class Admin::LocalesController < ApplicationController
   end
 
   def prep_form
-    @fellow = Fellow.all
+    @fellows = Fellow.all
   end
   #
   # def require_locale

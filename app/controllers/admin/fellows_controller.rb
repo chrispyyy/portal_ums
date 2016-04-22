@@ -3,7 +3,7 @@ class Admin::FellowsController < ApplicationController
   include SortedColumns
 
   before_action :require_fellow, only: [:edit, :update, :show, :destroy]
-  before_action :prep_form, only: [:new, :edit]
+  before_action :prep_form
 
   # scope :for_cohort,  -> (cohort) { where(cohort_id: cohort) }
 
@@ -21,6 +21,11 @@ class Admin::FellowsController < ApplicationController
     end
   end
 
+  def index
+    @fellows = Fellow.all
+    @fellows = Fellow.order(sort_column + " " + sort_direction)
+  end
+
   def show
   end
 
@@ -30,6 +35,7 @@ class Admin::FellowsController < ApplicationController
   def update
     if @fellow.update_attributes(fellow_params)
       redirect_to admin_fellows_path
+      return
     else
       prep_form
       render :edit
@@ -58,17 +64,17 @@ class Admin::FellowsController < ApplicationController
       :first_name,
       :last_name,
       :email,
-      :cohort_id
-      # locales_attributes: [:id, :city, :country, :period, :_destroy]
+      :cohort_id,
+      locales_attributes: [:id, :city, :country, :period, :_destroy]
     )
   end
 
   def require_fellow
-    @fellow = Fellow.find params[:id]
+    @fellow = Fellow.find(params[:id])
   end
 
   def prep_form
-    @cohort = Cohort.all
+    @cohorts = Cohort.all
   end
 
   def sort_column
